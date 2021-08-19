@@ -17,10 +17,10 @@
 // We need an API
 
 // GET
-// to get all books 
-// to get specific books
-// to get list of books based on category
-// to get list of books based on languages [task]
+// to get all books  ✅
+// to get specific books ✅
+// to get list of books based on category ✅
+// to get list of books based on languages [task] ✅
 
 // POST
 // Add new book
@@ -38,9 +38,9 @@
 // We need an api
 
 // GET
-// to get all authors
-// to get specific authors [task]
-// to get list of authors based on books 
+// to get all authors✅
+// to get specific authors [task]✅
+// to get list of authors based on books ✅
 
 // POST
 // Add new author
@@ -56,9 +56,9 @@
 // we need an API
 
 // GET
-// to get all publication  
-// to get specific publication [task] 
-// to get list of publication based on book [task] 
+// to get all publication  ✅
+// to get specific publication [task] ✅
+// to get list of publication based on book [task] ✅
 
 // POST
 // Add new publications [Task] 
