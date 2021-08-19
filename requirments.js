@@ -23,10 +23,10 @@
 // to get list of books based on languages [task] ✅
 
 // POST
-// Add new book
+// Add new book ✅
 
 // PUT
-// Update book title
+// Update book title✅
 // update/add new author for a book
 
 // DELETE
@@ -43,7 +43,7 @@
 // to get list of authors based on books ✅
 
 // POST
-// Add new author
+// Add new author✅
 
 // PUT
 // Update Author name using it's id [Task] 
@@ -61,7 +61,7 @@
 // to get list of publication based on book [task] ✅
 
 // POST
-// Add new publications [Task] 
+// Add new publications [Task] ✅
 
 // PUT
 // UPdate the publication name using it's id [Task]

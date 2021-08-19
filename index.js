@@ -3,7 +3,8 @@ const express = require("express");
 const database = require("./database");
 //Intilization
 const booky = express();
-
+//Configuration
+booky.use(express.json());
 /*
 Route           /
 Description     Get all books
@@ -160,10 +161,10 @@ if(getSpecficPublication.length === 0){
 return res.json({books:getSpecficPublication});
 });
 /*
-Route           /publications
+Route           /publications/book
 Description    to get specific publication 
 Access          PUBLIC
-Parameter      name
+Parameter      isbn
 Methods         GET
 */
 booky.get("/publications/book/:isbn",(req,res) => {
@@ -175,5 +176,57 @@ booky.get("/publications/book/:isbn",(req,res) => {
     });
 }
 return res.json({book:getSpecficPublication});
+});
+/*
+Route           /book/add
+Description    to add new book
+Access          PUBLIC
+Parameter      None
+Methods         POST
+*/
+booky.post("/book/add",(req,res) => {
+    const {newBook} =req.body;
+    database.books.push(newBook);
+    return res.json({books: database.books});
+});
+/*
+Route           /author/add
+Description    to add new author
+Access          PUBLIC
+Parameter      none
+Methods         POST
+*/
+booky.post("/author/add",(req,res) => {
+    const {newAuthor} =req.body;
+    database.authors.push(newAuthor);
+    return res.json({authors: database.authors});
+});
+/*
+Route           /author/add
+Description    to add new author
+Access          PUBLIC
+Parameter      none
+Methods         POST
+*/
+booky.post("/publication/add",(req,res) => {
+    const {newPublication} =req.body;
+    database.publications.push(newPublication);
+    return res.json({publications:database.publications});
+});
+/*
+Route           /book/update/title/
+Description    to update book title
+Access          PUBLIC
+Parameter      isbn
+Methods         PUT
+*/
+booky.put("/book/update/title/:isbn",(req,res)=>{
+database.books.forEach((book) =>{
+if(book.ISBN === req.params.isbn){
+    book.title = req.body.newBookTitle;
+    return;
+}
+});
+return res.json({books:database.books});
 });
 booky.listen(3000,()=> console.log("Hey server is running fine"))

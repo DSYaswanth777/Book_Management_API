@@ -9,6 +9,16 @@ const books = [
         publication: [1],
         category:["tech","programming","education","thriller"]
     },
+    {
+        ISBN: "1234567Book2",
+        title: "Getting started with HTML",
+        pubDate:"2021-09-09",
+        language: "en",
+        Page_num:250,
+        Author:[1,2],
+        publication: [1],
+        category:["tech","programming","education"]
+    }
 ];
 const authors = [
     {
@@ -36,4 +46,4 @@ const publications =[
     }
 ];
 
-module.exports = {books, authors,publications}
+module.exports = {books,authors,publications}
