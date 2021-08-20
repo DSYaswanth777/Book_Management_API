@@ -26,11 +26,11 @@ const authors = [
         name:"Yaswanth",
         books:["12345Books","1234567Book2"],
     },
-    // {
-    //     id:2,
-    //     name:"ElonMusk",
-    //     books:["12345Book"],
-    // }
+    {
+        id:2,
+        name:"ElonMusk",
+        books:["12345Book"],
+    }
 ];
 
 const publications =[

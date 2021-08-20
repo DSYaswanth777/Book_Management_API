@@ -361,7 +361,7 @@ Methods         DELETE
 */
 booky.delete("/author/:id",(req,res) =>{
     const updatedAuthor =database.authors.filter(
-        (author) =>author !== req.params.id);
+        (author) =>author.id !== parseInt (req.params.id));
         database.authors = updatedAuthor;
         return res.json({authors:database.authors});
 });

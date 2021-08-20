@@ -49,7 +49,7 @@
 // Update Author name using it's id [Task] ✅
 
 // DELETE
-// Delete an author
+// Delete an author✅
 
 // Publications
 
@@ -69,4 +69,4 @@
 
 // DELETE
 // Delete the publication
-// delete a book from publication
+// delete a book from publication✅
