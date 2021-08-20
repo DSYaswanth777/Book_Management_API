@@ -30,8 +30,8 @@
 // update/add new author for a book✅
 
 // DELETE
-// delete a book
-// delete an author
+// delete a book ✅
+// delete an author✅
 
 // Authors
 
