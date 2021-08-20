@@ -229,4 +229,32 @@ if(book.ISBN === req.params.isbn){
 });
 return res.json({books:database.books});
 });
+/*
+Route           /book/update/author
+Description     update/add new author for a book
+Access          PUBLIC
+Parameter      isbn
+Methods         PUT
+*/
+booky.put("/book/update/author/:isbn/:authorId",(req,res) => {
+//Update book database
+database.books.forEach((book) =>{
+    if(book.ISBN === req.params.isbn){
+        return book.Author.push(parseInt(req.params.authorId));
+    }
+});
+//update author databse
+database.authors.forEach((author) =>{
+    if(author.id === parseInt(req.params.authorId))
+    return authors.books.push(req.params.isbn);
+});
+return res.json({books:database.books,authors:database.authors})
+});
+/*
+Route           /book/update/author
+Description     update/add new author for a book
+Access          PUBLIC
+Parameter      isbn
+Methods         PUT
+*/
 booky.listen(3000,()=> console.log("Hey server is running fine"))
