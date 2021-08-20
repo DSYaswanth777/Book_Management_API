@@ -251,10 +251,59 @@ database.authors.forEach((author) =>{
 return res.json({books:database.books,authors:database.authors})
 });
 /*
-Route           /book/update/author
-Description     update/add new author for a book
+Route           /author/update/name
+Description     Update Author name using it's id 
+Access          PUBLIC
+Parameter      id
+Methods         PUT
+*/
+booky.put("/author/update/name/:id",(req,res)=>{
+    database.authors.forEach((author) =>{
+    if(author.id === parseInt (req.params.id)){
+        author.name = req.body.newAuthor.name;
+        return;
+    }
+    });
+    return res.json({authors:database.authors});
+    });
+    /*
+Route           /publication/update/name
+Description    UPdate the publication name using it's id
+Access          PUBLIC
+Parameter      id
+Methods         PUT
+*/
+booky.put("/publication/update/name/:id",(req,res)=>{
+    database.publications.forEach((publication) =>{
+    if(publication.id === parseInt(req.params.id)){
+        publication.name = req.body.newPublicationName;
+        return;
+    }
+    });
+    return res.json({publications:database.publications});
+    });
+ /*
+Route           /publication/update/book
+Description    update/add books to publications
 Access          PUBLIC
 Parameter      isbn
 Methods         PUT
 */
+booky.put("/publication/update/book/:isbn",(req,res) =>{
+//Update the publication databse
+database.publications.forEach((publication) => {
+    if(publication.id === req.body.pubId){
+        return publication.books.push(req.params.isbn);
+    }
+});
+//Update the book database
+database.books.forEach((book)=>{
+    if(book.ISBN === req.params.isbn){
+        book.publication =req.body.pubId;
+        message:"Sucessfully updated publication"
+        return;
+    }
+});
+return res.json({books:database.books,publications:database.publications,message:""})
+});
 booky.listen(3000,()=> console.log("Hey server is running fine"))

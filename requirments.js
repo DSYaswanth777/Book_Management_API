@@ -46,7 +46,7 @@
 // Add new author✅
 
 // PUT
-// Update Author name using it's id [Task] 
+// Update Author name using it's id [Task] ✅
 
 // DELETE
 // Delete an author
@@ -64,8 +64,8 @@
 // Add new publications [Task] ✅
 
 // PUT
-// UPdate the publication name using it's id [Task]
-// update/add books to publications
+// UPdate the publication name using it's id [Task] ✅
+// update/add books to publications ✅
 
 // DELETE
 // Delete the publication
