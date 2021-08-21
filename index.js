@@ -244,14 +244,19 @@ Access          PUBLIC
 Parameter      isbn
 Methods         PUT
 */
-booky.put("/book/update/title/:isbn",(req,res)=>{
-database.books.forEach((book) =>{
-if(book.ISBN === req.params.isbn){
-    book.title = req.body.newBookTitle;
-    return;
-}
-});
-return res.json({books:database.books});
+booky.put("/book/update/title/:isbn",async (req,res)=>{
+    const upddatedBook = await BookModel.findOneAndUpdate(
+    {
+        ISBN:req.params.isbn,
+    },
+    {
+        title:req.body.bookTitle,
+    },
+    {
+        new:true,
+    }
+    );
+return res.json({books:upddatedBook});
 });
 /*
 Route           /book/update/author
