@@ -79,11 +79,12 @@ Access          PUBLIC
 Parameter       LANGUAGE
 Methods         GET
 */
-booky.get("/l/:language",(req,res) =>{
- const getSpecficBook =database.books.filter((books) =>
- books.language.includes(req.params.language)
- );
- if(getSpecficBook.length === 0){
+booky.get("/l/:language",async (req,res) =>{
+    const getSpecficBook = await BookModel.find({language:req.params.language})
+//  const getSpecficBook =database.books.filter((books) =>
+//  books.language.includes(req.params.language)
+//  );
+ if(!getSpecficBook){
     return res.json({error: `No book found for category of ${req.params.language}`,
 });
 }
@@ -107,12 +108,13 @@ Access          PUBLIC
 Parameter       name
 Methods         GET
 */
-booky.get("/author/:name",(req,res)=>{
-    const getSpecficAuthor =database.authors.filter(
-        (author) => author.name === (req.params.name)
-        );
-        if(getSpecficAuthor.length === 0){
-            return res.json({error: `No book found for ISBN of ${req.params.name}`,
+booky.get("/author/:name",async (req,res)=>{
+    const getSpecficAuthor =await BookModel.findOne({name:req.params.id})
+    // const getSpecficAuthor =database.authors.filter(
+    //     (author) => author.name === (req.params.name)
+    //     );
+        if(!getSpecficAuthor){
+            return res.json({error: `No book found for  of ${req.params.name}`,
         });
         }
         return res.json({books:getSpecficAuthor});
@@ -158,8 +160,9 @@ Access          PUBLIC
 Parameter       NONE
 Methods         GET
 */
-booky.get("/publications",(req,res) =>{
-    return res.json({publications:database.publications});
+booky.get("/publications",async (req,res) =>{ 
+    const getAllPublications =await PublicationModel.find();
+    return res.json({publications:getAllPublications});
 });
 /*
 Route           /publications
@@ -168,11 +171,12 @@ Access          PUBLIC
 Parameter      name
 Methods         GET
 */
-booky.get("/publications/:name",(req,res) =>{
-const getSpecficPublication =database.publications.filter(
-    (publications) => publications.name === (req.params.name)
-);
-if(getSpecficPublication.length === 0){
+booky.get("/publications/:name",async (req,res) =>{
+    const getSpecficPublication =await BookModel.findOne({name:req.params.name})
+// const getSpecficPublication =database.publications.filter(
+//     (publications) => publications.name === (req.params.name)
+// );
+if(!getSpecficPublication){
     return res.json({error: `No publication found${req.params.name}`,
 });
 }
@@ -185,11 +189,12 @@ Access          PUBLIC
 Parameter      isbn
 Methods         GET
 */
-booky.get("/publications/book/:isbn",(req,res) => {
-    const getSpecficAuthor =database.authors.filter((publications) =>
-    publications.books.includes(req.params.isbn)
-    );
-    if(getSpecficPublication.length === 0){
+booky.get("/publications/book/:isbn",async(req,res) => {
+    const getSpecficPublication =await BookModel.findOne({ISBN:req.params.isbn})
+    // const getSpecficAuthor =database.authors.filter((publications) =>
+    // publications.books.includes(req.params.isbn)
+    // );
+    if(!getSpecficPublication){
         return res.json({error: `No publication found for book of ${req.params.isbn}`,
     });
 }
