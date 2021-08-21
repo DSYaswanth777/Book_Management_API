@@ -10,6 +10,6 @@ const mongoose = required("mongoose");
 });
 
 // Create a Publication Model
-const PublicationModel =mongoose.model(PublicationSchema);
+const PublicationModel =mongoose.model("Authors",PublicationSchema);
 
  modules.exports =PublicationModel;

@@ -16,6 +16,11 @@ mongoose.connect(process.env.MONGO_URL,{
 }
 )
 .then(() => console.log("Connection established!!!"));
+//Models 
+const BookModels =require("./database/book");
+const AuthorModels =require("./database/author");
+const PublicationModel =require("./database/publication");
+
 /*
 Route           /
 Description     Get all books
