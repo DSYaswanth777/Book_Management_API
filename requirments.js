@@ -68,5 +68,5 @@
 // update/add books to publications ✅
 
 // DELETE
-// Delete the publication
+// Delete the publication✅
 // delete a book from publication✅
