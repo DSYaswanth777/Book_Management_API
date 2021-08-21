@@ -1,4 +1,4 @@
-const mongoose = required("mongoose");
+const mongoose = require("mongoose");
 
 //Author Schema
 const AuthorSchema = mongoose.Schema({
@@ -8,6 +8,6 @@ const AuthorSchema = mongoose.Schema({
     });
 
     //Author Model
-    const AuthorModel = mongoose.model("Authors",AuthorSchema);
+    const AuthorModel = mongoose.model("authors",AuthorSchema);
     
-    modules.exports = AuthorModel;
+    module.exports = AuthorModel;

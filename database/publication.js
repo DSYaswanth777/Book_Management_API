@@ -1,6 +1,4 @@
-const { Schema } = require("mongoose");
-
-const mongoose = required("mongoose");
+const mongoose = require("mongoose");
 
 //Creating a Schema for Publication
  const PublicationSchema = mongoose.Schema({
@@ -10,6 +8,6 @@ const mongoose = required("mongoose");
 });
 
 // Create a Publication Model
-const PublicationModel =mongoose.model("Authors",PublicationSchema);
+const PublicationModel = mongoose.model("publications",PublicationSchema);
 
- modules.exports =PublicationModel;
+ module.exports = PublicationModel;
